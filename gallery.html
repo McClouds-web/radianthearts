@@ -419,19 +419,19 @@
 <!-- Category Filters -->
 <section class="px-margin-desktop max-w-container-max mx-auto mb-12">
 <div class="flex flex-wrap justify-center gap-3">
-<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-medium text-body-sm">All Moments</button>
-<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all">Learning</button>
-<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all">Outdoor Play</button>
-<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all">Creative Arts</button>
-<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all">STEM</button>
-<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all">Community</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-medium text-body-sm" type="button" data-filter="all">All Moments</button>
+<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all" type="button" data-filter="learning">Learning</button>
+<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all" type="button" data-filter="outdoor">Outdoor Play</button>
+<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all" type="button" data-filter="arts">Creative Arts</button>
+<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all" type="button" data-filter="stem">STEM</button>
+<button class="bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/30 px-6 py-2 rounded-full font-medium text-body-sm transition-all" type="button" data-filter="community">Community</button>
 </div>
 </section>
 <!-- Masonry Gallery -->
 <section class="px-margin-desktop max-w-container-max mx-auto">
 <div class="masonry-grid">
 <!-- Item 1: Learning -->
-<div class="masonry-item group cursor-pointer">
+<div class="masonry-item group cursor-pointer" data-cat="learning">
 <div class="relative overflow-hidden rounded-24 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
 <img class="w-full object-cover" data-alt="A bright, sunlit classroom where a young Black African girl with braided hair is intensely focused on reading a colorful picture book. She sits on a soft cream-colored rug, surrounded by wooden Montessori toys. The atmosphere is calm and academic, featuring the Radiant Hearts school colors of navy and soft orange accents in the background." src="img/rh/image7.jpg"/>
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
@@ -443,7 +443,7 @@
 </div>
 </div>
 <!-- Item 2: Outdoor Play -->
-<div class="masonry-item group cursor-pointer">
+<div class="masonry-item group cursor-pointer" data-cat="outdoor">
 <div class="relative overflow-hidden rounded-24 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
 <img class="w-full object-cover h-[500px]" data-alt="Dynamic outdoor shot of several energetic Black African children running across a lush green playground under a clear blue sky. One boy is kicking a small orange soccer ball, his face lit with pure joy. The style is professional and optimistic, capturing the vibrant Scandinavian-inspired aesthetic of the school with clean lines and natural textures." src="img/rh/image9.jpg"/>
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
@@ -455,7 +455,7 @@
 </div>
 </div>
 <!-- Item 3: Art Projects -->
-<div class="masonry-item group cursor-pointer">
+<div class="masonry-item group cursor-pointer" data-cat="arts">
 <div class="relative overflow-hidden rounded-24 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
 <img class="w-full object-cover" data-alt="A close-up shot of small hands belonging to a Black African child covered in vibrant, non-toxic finger paint. They are creating a large abstract mural on a white canvas spread across a wooden table. The lighting is bright and high-key, emphasizing the clean, minimalist environment and the creative mess of the art studio." src="img/rh/image10.jpg"/>
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
@@ -467,7 +467,7 @@
 </div>
 </div>
 <!-- Item 4: STEM -->
-<div class="masonry-item group cursor-pointer">
+<div class="masonry-item group cursor-pointer" data-cat="stem">
 <div class="relative overflow-hidden rounded-24 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
 <img class="w-full object-cover h-[400px]" data-alt="Two curious Black African preschoolers, a boy and a girl, wearing miniature lab coats as they look through a magnifying glass at a small plant sprout. The setting is a modern science corner with natural light and clean white surfaces. The image communicates high-standard educational values and professional nurturing." src="img/rh/image21.jpg"/>
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
@@ -479,7 +479,7 @@
 </div>
 </div>
 <!-- Item 5: Music -->
-<div class="masonry-item group cursor-pointer">
+<div class="masonry-item group cursor-pointer" data-cat="arts">
 <div class="relative overflow-hidden rounded-24 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
 <img class="w-full object-cover" data-alt="A joyful music session showing a group of Black African children playing traditional wooden drums and shakers. The scene is full of rhythm and movement, set in a spacious room with light oak floors and large windows. The aesthetic is sophisticated yet warm, capturing the essence of Montessori-inspired musical learning." src="img/rh/image15.jpg"/>
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
@@ -491,7 +491,7 @@
 </div>
 </div>
 <!-- Item 6: Graduation -->
-<div class="masonry-item group cursor-pointer">
+<div class="masonry-item group cursor-pointer" data-cat="community">
 <div class="relative overflow-hidden rounded-24 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
 <img class="w-full object-cover h-[450px]" data-alt="A heartwarming moment of a Black African child in a small navy graduation cap receiving a certificate from a smiling teacher. Proud parents are blurred in the background, creating a sense of community and celebration. The color palette is dominated by Heart Navy and soft whites, embodying institutional trust and success." src="img/rh/image1.jpg"/>
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
@@ -513,12 +513,12 @@
                     Our gallery only tells part of the story. Schedule a campus tour to see our unique approach to early learning in action.
                 </p>
 <div class="flex flex-col md:flex-row justify-center gap-4 relative z-10">
-<button class="bg-secondary-container text-primary px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform">
+<a class="inline-flex items-center justify-center text-center bg-secondary-container text-primary px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform" href="contact.html">
                         Book a School Tour
-                    </button>
-<button class="border-2 border-on-primary/30 text-on-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-on-primary/10 transition-colors">
+                    </a>
+<a class="inline-flex items-center justify-center text-center border-2 border-on-primary/30 text-on-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-on-primary/10 transition-colors" href="contact.html">
                         Download Brochure
-                    </button>
+                    </a>
 </div>
 </div>
 </section>
@@ -587,7 +587,7 @@
 <ul class="space-y-4 text-on-primary/70">
 <li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">location_on</span><span>Plot 1404, Gaborone West<br/>Phase 1, Gaborone, Botswana</span></li>
 <li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">call</span><a class="hover:text-white transition-colors" href="tel:+2673951404">+267 395 1404</a></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">mail</span><a class="hover:text-white transition-colors" href="mailto:admissions.co.bw">admissions.co.bw</a></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">mail</span><a class="hover:text-white transition-colors" href="mailto:admissions@radianthearts.co.bw">admissions@radianthearts.co.bw</a></li>
 <li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">schedule</span><span>Mon - Fri: 07:00 - 17:30</span></li>
 </ul>
 </div>
