@@ -1,0 +1,74 @@
+/* Shared print styles for Radiant Hearts documents.
+   Rendered to PDF with headless Chrome. */
+:root{
+  --navy:#001d4d; --orange:#E97B23; --amber:#B35A12;
+  --cream:#FFF7ED; --sand:#FBE6D2; --sky:#EAF1F6;
+  --graphite:#2b3a47; --grey:#6B7A88; --rule:#c8c2b6;
+}
+@page { size: A4; margin: 0; }
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:"Comic Neue","Trebuchet MS",sans-serif; color:var(--graphite);
+      -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+h1,h2,h3,h4{ font-family:"Baloo 2","Trebuchet MS",sans-serif; font-weight:600; color:var(--navy); }
+.page{ width:210mm; height:297mm; padding:14mm 15mm; position:relative; overflow:hidden; page-break-after:always; }
+.page:last-child{ page-break-after:auto; }
+.accent{ color:var(--amber); }
+
+/* masthead */
+.mast{ display:flex; justify-content:space-between; align-items:flex-start;
+       border-bottom:2.5px solid var(--navy); padding-bottom:4mm; margin-bottom:6mm; }
+.mast img{ width:40mm; }
+.mast .t{ text-align:right; }
+.mast h1{ font-size:19pt; line-height:1.15; }
+.mast .sub{ font-size:8.5pt; color:var(--grey); letter-spacing:.14em; text-transform:uppercase; margin-top:1mm; }
+
+/* section headers */
+.sec{ background:var(--navy); color:#fff; font-family:"Baloo 2",sans-serif; font-weight:600;
+      font-size:10.5pt; padding:2.2mm 4mm; border-radius:2mm; margin:5mm 0 3.5mm; }
+.sec.orange{ background:var(--orange); color:var(--navy); }
+h2.section{ font-size:20pt; margin:2mm 0 4mm; }
+.eyebrow{ font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); font-weight:700; }
+
+/* text */
+p{ font-size:10pt; line-height:1.65; }
+.muted{ color:var(--grey); }
+.small{ font-size:8.8pt; line-height:1.5; }
+ul{ list-style:none; margin-top:2mm; }
+li{ font-size:9.8pt; line-height:1.6; padding-left:6mm; position:relative; margin-bottom:2mm; }
+li:before{ content:""; position:absolute; left:0; top:2.3mm; width:2.2mm; height:2.2mm;
+           border-radius:50%; background:var(--orange); }
+
+/* fill-in fields */
+.row{ display:flex; gap:5mm; margin-bottom:3.5mm; }
+.f{ flex:1; }
+.f label{ display:block; font-size:8.2pt; letter-spacing:.1em; text-transform:uppercase;
+          color:var(--grey); font-weight:700; margin-bottom:1.2mm; }
+.line{ border-bottom:1px solid var(--rule); height:6.5mm; }
+.line.tall{ height:12mm; }
+.box-note{ background:var(--cream); border-radius:4mm; padding:5mm; margin-top:4mm; }
+.box-note.sand{ background:var(--sand); }
+.box-note.sky{ background:var(--sky); }
+.box-note.navy{ background:var(--navy); }
+.box-note.navy p,.box-note.navy li{ color:rgba(255,255,255,.88); }
+.box-note.navy h3{ color:#fff; }
+
+/* tick boxes */
+.ticks{ display:flex; flex-wrap:wrap; gap:3mm 7mm; margin-top:1.5mm; }
+.tick{ display:flex; align-items:center; gap:2.2mm; font-size:9.6pt; }
+.tick i{ width:4.2mm; height:4.2mm; border:1.4px solid var(--navy); border-radius:1mm; display:inline-block; }
+
+/* tables */
+table{ width:100%; border-collapse:collapse; margin-top:2mm; }
+th{ font-family:"Baloo 2",sans-serif; font-size:9pt; text-align:left; color:var(--navy);
+    border-bottom:1.5px solid var(--navy); padding:2.5mm 2mm; }
+td{ font-size:9.6pt; padding:2.8mm 2mm; border-bottom:1px solid #e4e0d8; vertical-align:top; }
+td.r{ text-align:right; font-family:"Baloo 2",sans-serif; font-weight:600; color:var(--navy); white-space:nowrap; }
+.fill{ display:inline-block; min-width:26mm; border-bottom:1px solid var(--rule); }
+
+/* signature */
+.sig{ display:flex; gap:8mm; margin-top:6mm; }
+.sig .f label{ margin-top:1.5mm; }
+
+/* footer */
+.foot{ position:absolute; left:15mm; right:15mm; bottom:9mm; display:flex; justify-content:space-between;
+       font-size:8pt; color:var(--grey); border-top:1px solid #e4e0d8; padding-top:2.5mm; }
