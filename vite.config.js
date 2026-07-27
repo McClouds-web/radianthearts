@@ -14,6 +14,8 @@ export default defineConfig({
         gallery: resolve(__dirname, 'gallery.html'),
         news: resolve(__dirname, 'news.html'),
         contact: resolve(__dirname, 'contact.html'),
+        privacy: resolve(__dirname, 'privacy.html'),
+        terms: resolve(__dirname, 'terms.html'),
       },
     },
   },
