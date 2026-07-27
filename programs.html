@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Programs | Radiant Hearts Pre-School</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&amp;family=Comic+Neue:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#001d4d",                 // Deep Navy (Institution trust)
+                        secondary: "#FF7F27",               // Orange Accent (Warmth, joy)
+                        "soft-cream": "#FFF7ED",            // Warm Cream (Background)
+                        "pure-white": "#FFFFFF",            // Pure White (Cards)
+                        foreground: "#1a2a3a",              // Navy-gray (Text)
+                        muted: "#F1F0F0",                   // Light Muted (Subtle backgrounds)
+                        border: "#d4cfc4",                  // Warm Border
+                        destructive: "#DC2626",             // Red (Errors)
+                        graphite: "#2b3a47",                // Graphite (Body copy)
+                        "cool-grey": "#6B7A88",             // Grey (Captions)
+                        "slate-blue": "#2F6B9A",
+                        "sky-wash": "#EAF1F6",
+                        "deep-amber": "#B35A12",
+                        "warm-sand": "#FBE6D2",
+                        
+                        // Semantic mapping for code compatibility
+                        "inverse-surface": "#23323f",
+                        "surface-container-high": "#daeafb",
+                        "on-secondary": "#062F55",          // Navy text on orange buttons
+                        "on-secondary-container": "#062F55", // Navy text on orange container
+                        "tertiary-container": "#322e27",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001c38",
+                        "on-surface-variant": "#43474e",
+                        "secondary-fixed": "#ffdbc7",
+                        "outline-variant": "#c3c6cf",
+                        "on-tertiary-fixed": "#1f1b15",
+                        "on-background": "#0d1d29",
+                        "secondary-container": "#E97B23",
+                        "outline": "#73777f",
+                        "surface-container-low": "#FDF4E9", // Soft Cream as surface-container-low
+                        "surface-tint": "#062F55",
+                        "surface": "#FDF4E9",               // Default surface background
+                        "on-tertiary-container": "#9c958c",
+                        "secondary-fixed-dim": "#ffb688",
+                        "tertiary-fixed": "#eae1d6",
+                        "surface-bright": "#ffffff",        // Pure White carries page
+                        "on-tertiary-fixed-variant": "#4b463e",
+                        "surface-dim": "#ccdced",
+                        "tertiary-fixed-dim": "#cdc5bb",
+                        "on-secondary-fixed": "#311300",
+                        "on-secondary-fixed-variant": "#733600",
+                        "on-primary-container": "#7898c3",
+                        "surface-container": "#e1efff",
+                        "tertiary": "#1d1913",
+                        "on-primary-fixed-variant": "#27486f",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#d4e4f5",
+                        "primary-fixed-dim": "#a9c9f7",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d4e4f5",
+                        "primary-fixed": "#d3e4ff",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#062f55",
+                        "inverse-primary": "#a9c9f7",
+                        "inverse-on-surface": "#e7f2ff",
+                        "error": "#ba1a1a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",                // 8px standard
+                        "sm": "0.25rem",                    // 4px
+                        "md": "0.75rem",                    // 12px
+                        "lg": "1.0rem",                     // 16px (the card radius)
+                        "xl": "1.5rem",                     // 24px
+                        "2xl": "1.5rem",
+                        "3xl": "2rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        DEFAULT: "0 4px 15px rgba(0, 29, 77, 0.12), 0 8px 25px rgba(0, 29, 77, 0.08)",
+                        md: "0 6px 20px rgba(0, 29, 77, 0.15), 0 10px 35px rgba(0, 29, 77, 0.1)",
+                        lg: "0 8px 30px rgba(0, 29, 77, 0.18), 0 15px 50px rgba(0, 29, 77, 0.12)",
+                        xl: "0 12px 40px rgba(0, 29, 77, 0.2), 0 20px 70px rgba(0, 29, 77, 0.15)",
+                        "clay": "0 8px 20px rgba(0, 29, 77, 0.15), 0 2px 4px rgba(0, 0, 0, 0.08)",
+                        "clay-lg": "0 12px 35px rgba(0, 29, 77, 0.18), 0 4px 8px rgba(0, 0, 0, 0.1)",
+                        "scandi": "0 4px 12px rgba(0, 0, 64, 0.06)"
+                    },
+                    spacing: {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "display-mobile": ["Baloo 2", "sans-serif"],
+                        "headline-sm": ["Baloo 2", "sans-serif"],
+                        "label-caps": ["Comic Neue", "sans-serif"],
+                        "headline-lg": ["Baloo 2", "sans-serif"],
+                        "body-lg": ["Comic Neue", "sans-serif"],
+                        "body-sm": ["Comic Neue", "sans-serif"],
+                        "headline-md": ["Baloo 2", "sans-serif"],
+                        "display": ["Baloo 2", "sans-serif"]
+                    },
+                    fontSize: {
+                        "display-mobile": ["36px", { lineHeight: "42px", fontWeight: "600" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "500" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.22em", fontWeight: "600" }],
+                        "headline-lg": ["40px", { lineHeight: "46px", letterSpacing: "-0.015em", fontWeight: "600" }],
+                        "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+                        "body-sm": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+                        "headline-md": ["28px", { lineHeight: "34px", fontWeight: "600" }],
+                        "display": ["56px", { lineHeight: "60px", letterSpacing: "-0.02em", fontWeight: "600" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .shadow-scandi {
+            box-shadow: 0px 10px 40px rgba(249, 115, 22, 0.15);
+        }
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Clay Morphic Effects */
+        .clay-card {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .clay-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(249, 115, 22, 0.25), 0 4px 8px rgba(0, 0, 0, 0.12);
+        }
+        .clay-button {
+            border-radius: 40px;
+            background: linear-gradient(135deg, #001d4d 0%, #003366 100%);
+            box-shadow: 0 6px 20px rgba(0, 29, 77, 0.2), 0 2px 4px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: #FF7F27;
+        }
+        .clay-button:active {
+            transform: scale(0.92);
+        }
+        .clay-button:hover {
+            box-shadow: 0 8px 25px rgba(0, 29, 77, 0.3), 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .float-shape {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Playful Shapes */
+        .blob-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        .organic-border {
+            border-radius: 40px 120px 40px 120px;
+        }
+        .arc-crop {
+            border-radius: 500px 500px 0 0;
+        }
+        .rounded-xl-clay {
+            border-radius: 40px;
+        }
+
+        /* Decorative Shape Elements */
+        .shape-circle {
+            border-radius: 50%;
+        }
+        .shape-square-playful {
+            border-radius: 20px;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Colored Card Overlays (Child-friendly colors) */
+        .card-pink {
+            background: linear-gradient(135deg, rgba(255, 159, 188, 0.85) 0%, rgba(255, 179, 200, 0.85) 100%);
+        }
+        .card-yellow {
+            background: linear-gradient(135deg, rgba(255, 217, 61, 0.85) 0%, rgba(255, 237, 100, 0.85) 100%);
+        }
+        .card-cyan {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.85) 0%, rgba(100, 220, 220, 0.85) 100%);
+        }
+        .card-purple {
+            background: linear-gradient(135deg, rgba(168, 216, 234, 0.85) 0%, rgba(190, 230, 245, 0.85) 100%);
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .smooth-transition,
+            .clay-card,
+            .clay-button,
+            .float-shape {
+                animation: none;
+                transition: none;
+            }
+        }
+    </style>
+<style id="font-family-fix">
+        /* Tailwind CDN fails to emit font-family for stacks whose name contains a
+           digit ("Baloo 2"), so every heading silently fell back to the body font.
+           Declare the display stack explicitly. */
+        .font-display,
+        .font-display-mobile,
+        .font-headline-lg,
+        .font-headline-md,
+        .font-headline-sm {
+            font-family: "Baloo 2", "Trebuchet MS", sans-serif;
+        }
+        .font-body-lg,
+        .font-body-sm,
+        .font-label-caps {
+            font-family: "Comic Neue", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-soft-cream text-foreground selection:bg-orange-200 selection:text-foreground font-body-lg">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/20 h-20 transition-all duration-300">
+    <div class="flex justify-between items-center h-full px-margin-desktop">
+        <a href="index.html" class="flex items-center gap-2 group">
+            <img src="logo/rh-mark.png" alt="Radiant Hearts" class="h-12 w-auto group-hover:scale-110 transition-transform duration-300" />
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="nav-link-home text-on-surface-variant hover:text-primary transition-colors font-semibold" href="index.html">Home</a>
+            <a class="nav-link-about text-on-surface-variant hover:text-primary transition-colors font-semibold" href="about.html">About</a>
+            <a class="nav-link-programs text-deep-amber border-b-2 border-secondary pb-1 font-bold" href="programs.html">Programs</a>
+            <a class="nav-link-admissions text-on-surface-variant hover:text-primary transition-colors font-semibold" href="admissions.html">Admissions</a>
+            <a class="nav-link-gallery text-on-surface-variant hover:text-primary transition-colors font-semibold" href="gallery.html">Gallery</a>
+            <a class="nav-link-news text-on-surface-variant hover:text-primary transition-colors font-semibold" href="news.html">News</a>
+            <a class="nav-link-contact text-on-surface-variant hover:text-primary transition-colors font-semibold" href="contact.html">Contact</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="contact.html" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:bg-primary-container smooth-transition shadow-sm active:scale-95 text-center">
+                Enroll Now
+            </a>
+            <!-- Mobile Menu Trigger -->
+            <button id="mobile-menu-trigger" class="md:hidden text-primary p-2 hover:bg-surface-container rounded-full smooth-transition" aria-label="Open Menu">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden border-l border-outline-variant/20">
+    <div class="flex flex-col h-full p-6">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-2">
+                <img src="logo/rh-mark.png" alt="Radiant Hearts" class="h-10 w-auto" />
+            </div>
+            <button id="mobile-menu-close" class="text-primary p-2 hover:bg-surface-container rounded-full smooth-transition" aria-label="Close Menu">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 text-lg font-semibold mb-auto">
+            <a class="mobile-nav-link-home text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+            <a class="mobile-nav-link-about text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+            <a class="mobile-nav-link-programs text-deep-amber font-bold" href="programs.html">Programs</a>
+            <a class="mobile-nav-link-admissions text-on-surface-variant hover:text-primary transition-colors" href="admissions.html">Admissions</a>
+            <a class="mobile-nav-link-gallery text-on-surface-variant hover:text-primary transition-colors" href="gallery.html">Gallery</a>
+            <a class="mobile-nav-link-news text-on-surface-variant hover:text-primary transition-colors" href="news.html">News</a>
+            <a class="mobile-nav-link-contact text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+        </div>
+        <div class="pt-6 border-t border-outline-variant/10">
+            <a href="contact.html" class="block w-full bg-primary text-on-primary text-center py-4 rounded-2xl font-bold hover:bg-primary-container smooth-transition shadow-sm">
+                Enroll Now
+            </a>
+        </div>
+    </div>
+</div>
+<main class="pt-20 overflow-x-hidden">
+
+<!-- Page Hero -->
+<section class="relative bg-primary text-on-primary overflow-hidden">
+<div class="absolute -top-24 -right-24 w-[420px] h-[420px] bg-secondary-container/15 blob-shape float-shape"></div>
+<div class="absolute -bottom-32 -left-20 w-[320px] h-[320px] bg-white/5 blob-shape"></div>
+<div class="px-margin-desktop py-24 max-w-container-max mx-auto relative z-10">
+<span class="text-label-caps font-label-caps uppercase text-secondary-fixed-dim">What We Offer</span>
+<h1 class="font-display text-display text-white leading-[1.1] mt-4 max-w-3xl">
+                Programs for Every <span class="text-secondary-fixed relative inline-block italic">Milestone.
+<svg class="absolute -bottom-2 left-0 w-full" fill="none" height="12" viewbox="0 0 200 12" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 10C35.5 3.5 130 -4.5 198 10" stroke="#FD8A32" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+</span>
+</h1>
+<p class="text-white/80 leading-relaxed text-xl max-w-2xl mt-6">
+                Small classes. Warm teachers. Learning that fits your child's stage — from first steps to school readiness.
+            </p>
+</div>
+</section>
+
+<!-- Programs -->
+<section class="bg-soft-cream px-margin-desktop py-24">
+<div class="max-w-container-max mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-label-caps font-label-caps uppercase text-deep-amber">Our Classes</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-3">Three Stages of Growing</h2>
+<p class="text-graphite/85 leading-relaxed mt-4">Each class is built around what children need at that age — nothing rushed, nothing skipped.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+<!-- Baby Class -->
+<div class="clay-card bg-secondary-container p-10 flex flex-col">
+<div class="w-16 h-16 bg-secondary-container shape-circle flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-white">child_care</span>
+</div>
+<span class="text-label-caps font-label-caps uppercase text-deep-amber">9 - 18 Months</span>
+<h3 class="font-headline-md text-headline-md text-on-secondary mt-2 mb-4">Baby Class</h3>
+<p class="text-on-secondary leading-relaxed mb-6">Gentle, responsive care. We hold, sing, and celebrate every first — from first words to first steps.</p>
+<ul class="space-y-3 mt-auto">
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-on-secondary text-xl">check_circle</span><span class="text-body-sm font-body-sm text-on-secondary">One-on-one responsiveness</span></li>
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-on-secondary text-xl">check_circle</span><span class="text-body-sm font-body-sm text-on-secondary">Sensory play every day</span></li>
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-on-secondary text-xl">check_circle</span><span class="text-body-sm font-body-sm text-on-secondary">Daily updates for parents</span></li>
+</ul>
+</div>
+
+<!-- Toddlers -->
+<div class="clay-card bg-primary p-10 flex flex-col">
+<div class="w-16 h-16 bg-primary shape-circle flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-white">smart_toy</span>
+</div>
+<span class="text-label-caps font-label-caps uppercase text-deep-amber">18 - 30 Months</span>
+<h3 class="font-headline-md text-headline-md text-white mt-2 mb-4">Toddlers</h3>
+<p class="text-white/75 leading-relaxed mb-6">Freedom within structure. Your toddler chooses, explores, and finds their voice with us beside them.</p>
+<ul class="space-y-3 mt-auto">
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary-fixed-dim text-xl">check_circle</span><span class="text-body-sm font-body-sm text-white/75">Child-led exploration</span></li>
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary-fixed-dim text-xl">check_circle</span><span class="text-body-sm font-body-sm text-white/75">Language-rich environment</span></li>
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary-fixed-dim text-xl">check_circle</span><span class="text-body-sm font-body-sm text-white/75">Music, movement, and messy play</span></li>
+</ul>
+</div>
+
+<!-- Pre-Nursery -->
+<div class="clay-card bg-sky-wash p-10 flex flex-col">
+<div class="w-16 h-16 bg-surface-dim shape-circle flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-primary">school</span>
+</div>
+<span class="text-label-caps font-label-caps uppercase text-deep-amber">3 - 4 Years</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-2 mb-4">Pre-Nursery</h3>
+<p class="text-graphite/85 leading-relaxed mb-6">Ready for school, ready for life. Phonics, numbers, and life skills woven into joyful learning.</p>
+<ul class="space-y-3 mt-auto">
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-slate-blue text-xl">check_circle</span><span class="text-body-sm font-body-sm text-graphite/85">Pre-literacy and pre-numeracy</span></li>
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-slate-blue text-xl">check_circle</span><span class="text-body-sm font-body-sm text-graphite/85">School-readiness skills</span></li>
+<li class="flex gap-3 items-start"><span class="material-symbols-outlined text-slate-blue text-xl">check_circle</span><span class="text-body-sm font-body-sm text-graphite/85">Confidence in groups</span></li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Schedule Options -->
+<section class="bg-white px-margin-desktop py-24">
+<div class="max-w-container-max mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-label-caps font-label-caps uppercase text-deep-amber">Flexible Hours</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-3">Times That Work for You</h2>
+<p class="text-graphite/85 leading-relaxed mt-4">Pick the rhythm that fits your family. Change it as your needs change.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-secondary-container text-on-secondary rounded-xl-clay p-8 smooth-transition hover:-translate-y-2">
+<span class="material-symbols-outlined text-3xl mb-4 block">wb_sunny</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Full Day</h3>
+<p class="text-sm opacity-80 mb-3">07:00 - 17:30</p>
+<p class="text-body-sm font-body-sm opacity-90">Full care with breakfast, lunch, and snacks included.</p>
+</div>
+<div class="bg-primary text-on-primary rounded-xl-clay p-8 smooth-transition hover:-translate-y-2">
+<span class="material-symbols-outlined text-3xl mb-4 block">light_mode</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Morning</h3>
+<p class="text-sm opacity-70 mb-3">07:00 - 12:30</p>
+<p class="text-body-sm font-body-sm opacity-80">Core learning hours with breakfast and mid-morning snack.</p>
+</div>
+<div class="bg-soft-cream text-primary rounded-xl-clay p-8 smooth-transition hover:-translate-y-2 border border-outline-variant/30">
+<span class="material-symbols-outlined text-3xl mb-4 block text-deep-amber">bedtime</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Afternoon</h3>
+<p class="text-sm text-graphite/80 mb-3">13:00 - 17:30</p>
+<p class="text-body-sm font-body-sm text-graphite/85">Discovery, creative play, and outdoor time.</p>
+</div>
+<div class="bg-white text-primary rounded-xl-clay p-8 smooth-transition hover:-translate-y-2 border border-outline-variant/30 shadow-scandi">
+<span class="material-symbols-outlined text-3xl mb-4 block text-slate-blue">event_repeat</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Flexible Days</h3>
+<p class="text-sm text-graphite/80 mb-3">2 - 5 days a week</p>
+<p class="text-body-sm font-body-sm text-graphite/85">Choose the days you need. Perfect for part-time schedules.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- What's Included -->
+<section class="bg-soft-cream px-margin-desktop py-24">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="text-label-caps font-label-caps uppercase text-deep-amber">Every Program Includes</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-3 mb-6">More Than Just Classes</h2>
+<p class="text-graphite/85 leading-relaxed mb-8">Whatever program you choose, your child gets the same care, the same attention, and the same warm welcome every morning.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 shrink-0 bg-secondary-container/15 shape-circle flex items-center justify-center">
+<span class="material-symbols-outlined text-deep-amber">restaurant</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Healthy Meals</h4>
+<p class="text-body-sm font-body-sm text-graphite/85">Fresh food cooked daily on site.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 shrink-0 bg-primary/10 shape-circle flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Small Classes</h4>
+<p class="text-body-sm font-body-sm text-graphite/85">Max 12 children per class.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 shrink-0 bg-surface-dim shape-circle flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-blue">park</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Outdoor Play</h4>
+<p class="text-body-sm font-body-sm text-graphite/85">Safe gardens and daily fresh air.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 shrink-0 bg-secondary-fixed shape-circle flex items-center justify-center">
+<span class="material-symbols-outlined text-deep-amber">forum</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Daily Updates</h4>
+<p class="text-body-sm font-body-sm text-graphite/85">Photos and notes sent to parents.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-8 -right-8 w-40 h-40 bg-secondary-container/20 blob-shape float-shape"></div>
+<img src="img/rh/image4.jpg" alt="Children learning together" class="relative rounded-xl-clay w-full h-[460px] object-cover shadow-lg" loading="lazy"/>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="bg-white px-margin-desktop py-24">
+<div class="max-w-container-max mx-auto">
+<div class="bg-primary text-on-primary rounded-xl-clay p-12 md:p-16 text-center relative overflow-hidden">
+<div class="absolute -bottom-20 -right-16 w-[300px] h-[300px] bg-secondary-container/15 blob-shape"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4">Find the Right Fit for Your Child</h2>
+<p class="text-white/80 leading-relaxed max-w-2xl mx-auto mb-8">Come see the classrooms, meet the teachers, and ask us anything. Tours run every weekday.</p>
+<div class="flex flex-wrap gap-4 justify-center">
+<a href="admissions.html" class="bg-secondary-container text-on-secondary font-bold px-6 py-3 rounded-full text-sm hover:bg-secondary-fixed-dim smooth-transition shadow-lg active:scale-95">
+                            Start Enrollment
+                        </a>
+<a href="contact.html" class="bg-white text-primary font-bold px-6 py-3 rounded-full text-sm hover:bg-orange-50 smooth-transition active:scale-95">
+                            Book a Tour
+                        </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- Newsletter -->
+<section class="bg-soft-cream px-margin-desktop pt-24 pb-32 relative overflow-hidden">
+<div class="absolute top-10 left-[8%] w-24 h-24 bg-secondary-container/20 blob-shape float-shape"></div>
+<div class="absolute bottom-16 right-[10%] w-32 h-32 bg-primary/10 blob-shape"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<div class="w-16 h-16 mx-auto bg-secondary-container shape-circle flex items-center justify-center mb-6 shadow-lg">
+<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 7-10 6L2 7"/></svg>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Never Miss a Moment</h2>
+<p class="text-graphite/85 font-body-lg text-body-lg leading-relaxed max-w-xl mx-auto mb-10">
+                School news, events, and term dates — one short email a month. No spam, and you can unsubscribe anytime.
+            </p>
+<form class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+<input name="email" type="email" autocomplete="email" required aria-label="Your email address" placeholder="Enter your email" class="flex-1 min-w-0 bg-white border-2 border-outline-variant/40 rounded-full px-7 py-4 text-graphite placeholder:text-cool-grey/60 focus:outline-none focus:border-secondary-container focus:ring-4 focus:ring-secondary-container/20 smooth-transition"/>
+<button type="submit" class="shrink-0 bg-primary text-on-primary font-bold px-8 py-4 rounded-full hover:bg-primary-container smooth-transition shadow-lg active:scale-95">
+                    Subscribe
+                </button>
+</form>
+<p class="text-graphite/80 text-body-sm font-body-sm mt-5">Join 150+ Radiant Hearts families.</p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary w-full relative overflow-hidden">
+<div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary-container/10 blob-shape translate-x-1/3 translate-y-1/3"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-margin-desktop py-20 max-w-container-max mx-auto relative z-10">
+<div class="space-y-6">
+<img src="logo/rh-primary-mono-white.png" alt="Radiant Hearts" class="h-32 w-auto" />
+<p class="text-on-primary/70 leading-relaxed text-sm max-w-xs">
+                    Great early learning. Helping children grow and learn in Gaborone.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-secondary-container transition-colors" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#062F55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-secondary-container transition-colors" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#062F55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5" fill="#062F55"/></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-secondary-container transition-colors" href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok" aria-label="TikTok">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#062F55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-secondary-container transition-colors" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#062F55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-secondary-container transition-colors" href="https://wa.me/26700000000" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#062F55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-8 text-secondary-container">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-on-primary/70 hover:text-white transition-colors" href="programs.html">Programs</a></li>
+<li><a class="text-on-primary/70 hover:text-white transition-colors" href="admissions.html">Admissions</a></li>
+<li><a class="text-on-primary/70 hover:text-white transition-colors" href="about.html">About Us</a></li>
+<li><a class="text-on-primary/70 hover:text-white transition-colors" href="news.html">News</a></li>
+<li><a class="text-on-primary/70 hover:text-white transition-colors" href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-8 text-secondary-container">Visit Us</h4>
+<ul class="space-y-4 text-on-primary/70">
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">location_on</span><span>Plot 1404, Gaborone West<br/>Phase 1, Gaborone, Botswana</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">call</span><a class="hover:text-white transition-colors" href="tel:+2673951404">+267 395 1404</a></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">mail</span><a class="hover:text-white transition-colors" href="mailto:admissions.co.bw">admissions.co.bw</a></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">schedule</span><span>Mon - Fri: 07:00 - 17:30</span></li>
+</ul>
+</div>
+</div>
+<div class="px-margin-desktop py-10 border-t border-white/10 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-on-primary/70 text-xs relative z-10">
+<p>© 2024 Radiant Hearts Pre-School. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="index.html">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="index.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script type="module" src="main.js"></script>
+</body></html>

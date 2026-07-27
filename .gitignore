@@ -1,0 +1,7 @@
+node_modules/
+dist/
+_assets-archive/
+.DS_Store
+*.log
+.claude-flow/
+.claude/
