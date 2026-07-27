@@ -10,6 +10,11 @@
   .line{ height:5.6mm; }
   .line.tall{ height:9mm; }
   .f label{ font-size:7.8pt; margin-bottom:.8mm; }
+  .office-strip{ display:flex; align-items:flex-end; gap:5mm; background:var(--sky);
+                 border-radius:3mm; padding:3.5mm 4mm; margin-top:3mm; }
+  .office-strip .office-tag{ font-size:7.6pt; letter-spacing:.14em; text-transform:uppercase;
+                 font-weight:700; color:var(--amber); white-space:nowrap; padding-bottom:2mm; }
+  .office-strip .f{ flex:1; }
 </style>
 </head><body>
 
@@ -20,7 +25,13 @@
     <div class="t"><h1>Enrolment Form</h1><div class="sub">Page 1 of 3</div></div>
   </div>
 
-  <p class="small muted">Please complete in block letters. Bring this form to your tour along with your child's birth certificate, immunisation card and any medical notes. Office use: date received <span class="fill" style="min-width:34mm"></span> &nbsp; Class allocated <span class="fill" style="min-width:34mm"></span></p>
+  <p class="small muted">Please complete in block letters. Bring this form to your tour along with your child's birth certificate, immunisation card and any medical notes.</p>
+
+  <div class="office-strip">
+    <span class="office-tag">Office use</span>
+    <div class="f"><label>Date received</label><div class="write sm"></div></div>
+    <div class="f"><label>Class allocated</label><div class="write sm"></div></div>
+  </div>
 
   <div class="sec">1. Child's details</div>
   <div class="row">
