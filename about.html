@@ -279,6 +279,79 @@
             font-family: "Comic Neue", sans-serif;
         }
     </style>
+<style id="responsive-fixes">
+        /* Responsive layer.
+           Tailwind's CDN injects its utilities after this block, so these
+           overrides use !important to win. Keeps the desktop design intact
+           and only adjusts gutters, type scale and touch targets below lg. */
+
+        /* --- Horizontal gutters: 64px is far too wide on phones --- */
+        @media (max-width: 639px) {
+            .px-margin-desktop { padding-left: 20px !important; padding-right: 20px !important; }
+        }
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .px-margin-desktop { padding-left: 40px !important; padding-right: 40px !important; }
+        }
+
+        /* --- Type scale --- */
+        @media (max-width: 639px) {
+            .text-display   { font-size: 34px !important; line-height: 40px !important; }
+            .text-headline-lg { font-size: 26px !important; line-height: 32px !important; }
+            .text-headline-md { font-size: 21px !important; line-height: 28px !important; }
+            .text-headline-sm { font-size: 18px !important; line-height: 25px !important; }
+            .text-body-lg   { font-size: 16px !important; line-height: 26px !important; }
+            /* one-off large utility sizes used in heroes */
+            .text-5xl { font-size: 32px !important; line-height: 38px !important; }
+            .text-4xl { font-size: 28px !important; line-height: 34px !important; }
+            .text-3xl { font-size: 24px !important; line-height: 30px !important; }
+            .text-2xl { font-size: 20px !important; line-height: 27px !important; }
+            .text-xl  { font-size: 18px !important; line-height: 26px !important; }
+        }
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .text-display     { font-size: 44px !important; line-height: 50px !important; }
+            .text-headline-lg { font-size: 32px !important; line-height: 38px !important; }
+        }
+
+        /* --- Vertical rhythm: 96px section padding is heavy on phones --- */
+        @media (max-width: 639px) {
+            .py-24 { padding-top: 56px !important; padding-bottom: 56px !important; }
+            .py-20 { padding-top: 48px !important; padding-bottom: 48px !important; }
+            .pt-24 { padding-top: 56px !important; }
+            .pb-32 { padding-bottom: 64px !important; }
+            .p-12, .md\:p-16 { padding: 28px !important; }
+            .p-10 { padding: 24px !important; }
+            .gap-12 { gap: 32px !important; }
+        }
+
+        /* --- Touch targets: min 44x44 (Apple HIG) --- */
+        @media (max-width: 1023px) {
+            footer a[title], nav a[title] { min-width: 44px; min-height: 44px; }
+            .mobile-nav-link-home, .mobile-nav-link-about, .mobile-nav-link-programs,
+            .mobile-nav-link-admissions, .mobile-nav-link-gallery,
+            .mobile-nav-link-news, .mobile-nav-link-contact {
+                display: block; padding-top: 10px; padding-bottom: 10px;
+            }
+            button, a.rounded-full { min-height: 44px; }
+            /* footer + legal links need a real hit area, not just their text box */
+            footer li a { display: block; padding-top: 11px; padding-bottom: 11px; }
+            footer a[href^="tel:"], footer a[href^="mailto:"] { display: inline-block; padding: 11px 0; }
+            footer .flex.gap-8 a { display: inline-block; padding: 14px 0; }
+            #mobile-menu-trigger, #mobile-menu-close { min-width: 44px; min-height: 44px; }
+        }
+
+        /* --- Hero: full-height + huge bg image is awkward on short screens --- */
+        @media (max-width: 639px) {
+            .min-h-screen { min-height: 78vh !important; }
+        }
+        /* --- Media never forces overflow --- */
+        img, svg, video { max-width: 100%; }
+
+        /* --- Wide content scrolls inside itself, never the page --- */
+        @media (max-width: 639px) {
+            .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+        }
+    </style>
+
 </head>
 <body class="bg-surface font-body-lg text-on-surface">
 <!-- TopNavBar -->
