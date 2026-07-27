@@ -64,15 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
     accordions.forEach(acc => {
         acc.addEventListener('click', () => {
             const content = acc.querySelector('div:last-child');
+            // chevron icons were removed sitewide, so the icon is optional here
             const icon = acc.querySelector('.material-symbols-outlined');
-            if (content && icon) {
-                if (content.classList.contains('hidden')) {
-                    content.classList.remove('hidden');
-                    icon.style.transform = 'rotate(180deg)';
-                } else {
-                    content.classList.add('hidden');
-                    icon.style.transform = 'rotate(0deg)';
-                }
+            if (content) {
+                const opening = content.classList.contains('hidden');
+                content.classList.toggle('hidden', !opening);
+                if (icon) icon.style.transform = opening ? 'rotate(180deg)' : 'rotate(0deg)';
             }
         });
     });
