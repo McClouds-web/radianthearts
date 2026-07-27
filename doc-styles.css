@@ -72,3 +72,9 @@ td.r{ text-align:right; font-family:"Baloo 2",sans-serif; font-weight:600; color
 /* footer */
 .foot{ position:absolute; left:15mm; right:15mm; bottom:9mm; display:flex; justify-content:space-between;
        font-size:8pt; color:var(--grey); border-top:1px solid #e4e0d8; padding-top:2.5mm; }
+
+/* Writeable field on a coloured background: pen must show, so give it a white box */
+.write{ background:#fff; border:1px solid var(--rule); border-radius:1.2mm; height:7.5mm; }
+.write.sm{ height:6.5mm; }
+.fill-box{ display:inline-block; background:#fff; border:1px solid var(--rule); border-radius:1.2mm;
+           height:5.5mm; vertical-align:middle; }
