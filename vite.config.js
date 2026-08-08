@@ -19,6 +19,7 @@ export default defineConfig({
         newsRegistration: resolve(__dirname, 'news-registration.html'),
         newsRequirements: resolve(__dirname, 'news-requirements.html'),
         newsOpening: resolve(__dirname, 'news-opening.html'),
+        notFound: resolve(__dirname, '404.html'),
       },
     },
   },
