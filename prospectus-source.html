@@ -19,27 +19,27 @@
   .accent{ color:var(--amber); }
 
   /* ---- cover ---- */
-  .cover{ background:var(--navy); color:#fff; display:flex; flex-direction:column; justify-content:space-between; }
-  .cover h1,.cover h2,.cover h3{ color:#fff; }
+  .cover{ background:#fff; color:var(--graphite); display:flex; flex-direction:column; justify-content:space-between; }
+  .cover h1,.cover h2,.cover h3{ color:var(--navy); }
   .cover .blob{ position:absolute; border-radius:60% 40% 30% 70%/60% 30% 70% 40%; background:rgba(233,123,35,.18); }
   .cover .b1{ width:340px; height:340px; top:-120px; right:-110px; }
-  .cover .b2{ width:260px; height:260px; bottom:-90px; left:-90px; background:rgba(255,255,255,.06); }
+  .cover .b2{ width:260px; height:260px; bottom:-110px; left:-120px; background:rgba(233,123,35,.08); }
   .cover-logo{ width:74mm; display:block; }
-  .cover h1{ font-size:40pt; line-height:1.1; margin-top:14mm; }
-  .cover .lede{ font-size:13pt; line-height:1.65; color:rgba(255,255,255,.85); max-width:120mm; margin-top:8mm; }
-  .cover .meta{ font-size:10pt; color:rgba(255,255,255,.7); line-height:1.9; }
+  .cover h1{ font-size:40pt; line-height:1.1; }
+  .cover .lede{ font-size:13pt; line-height:1.65; color:var(--graphite); max-width:120mm; margin-top:8mm; }
+  .cover .meta{ font-size:10pt; color:var(--grey); line-height:1.9; }
   .pill{ display:inline-block; background:var(--orange); color:var(--navy); font-family:"Baloo 2",sans-serif;
          font-weight:600; font-size:10pt; padding:3mm 7mm; border-radius:999px; letter-spacing:.06em; }
 
   /* ---- inner pages ---- */
   .eyebrow{ font-size:9pt; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); font-weight:700; }
-  h2.section{ font-size:24pt; margin:3mm 0 6mm; }
+  h2.section{ font-size:24pt; margin:2.5mm 0 4.5mm; }
   h3{ font-size:13pt; margin-bottom:1.5mm; }
   p{ font-size:10.5pt; line-height:1.7; }
   .muted{ color:var(--grey); }
 
-  .cards{ display:flex; gap:5mm; margin-bottom:9mm; }
-  .card{ flex:1; border-radius:6mm; padding:6mm; }
+  .cards{ display:flex; gap:5mm; margin-bottom:4mm; }
+  .card{ flex:1; border-radius:6mm; padding:5mm; }
   .card .age{ font-size:8.5pt; letter-spacing:.14em; text-transform:uppercase; font-weight:700; }
   .card p{ font-size:9.5pt; line-height:1.6; margin-top:2mm; }
   .c-orange{ background:var(--orange); } .c-orange h3,.c-orange .age{ color:var(--navy); } .c-orange p{ color:rgba(0,29,77,.85); }
@@ -51,6 +51,10 @@
   td.r{ text-align:right; font-family:"Baloo 2",sans-serif; font-weight:600; color:var(--navy); white-space:nowrap; }
 
   .rhythm{ display:flex; gap:4mm; }
+  .daytable{ width:100%; border-collapse:collapse; margin-top:0; }
+  .daytable td{ font-size:9pt; padding:1.5mm 0; border-bottom:1px solid #e9e5dc; }
+  .daytable td.rt{ width:33%; font-family:"Baloo 2",sans-serif; font-weight:600; color:var(--navy); white-space:nowrap; }
+  .daytable td.ra{ color:var(--graphite); }
   .slot{ flex:1; border-radius:5mm; padding:5mm; background:var(--cream); }
   .slot .time{ font-size:8.5pt; font-weight:700; letter-spacing:.1em; color:var(--amber); }
   .slot h4{ font-size:11pt; margin:1.5mm 0; }
@@ -60,7 +64,7 @@
   li{ font-size:10.5pt; line-height:1.65; padding-left:7mm; position:relative; margin-bottom:2.6mm; }
   li:before{ content:""; position:absolute; left:0; top:2.6mm; width:2.6mm; height:2.6mm; border-radius:50%; background:var(--orange); }
 
-  .box{ background:var(--cream); border-radius:6mm; padding:7mm; margin-top:6mm; }
+  .box{ background:var(--cream); border-radius:6mm; padding:5mm; margin-top:4mm; }
   .box.navy{ background:var(--navy); } .box.navy h3{ color:#fff; } .box.navy p,.box.navy li{ color:rgba(255,255,255,.85); }
   .box.navy td{ color:rgba(255,255,255,.85); border-bottom-color:rgba(255,255,255,.15); }
   .box.navy td.r{ color:#ffb688; }
@@ -81,15 +85,15 @@
 <!-- ======== 1. COVER ======== -->
 <section class="page cover">
   <div class="blob b1"></div><div class="blob b2"></div>
-  <div style="position:relative">
-    <img class="cover-logo" src="public/logo/rh-primary-mono-white.png" alt="Radiant Hearts Pre-School"/>
+  <img class="cover-logo" src="public/logo/rh-primary.png" alt="Radiant Hearts Pre-School" style="position:relative"/>
+  <div style="position:relative; margin:auto 0">
     <h1>Where Little Hearts<br/>Learn Big Things.</h1>
-    <p class="lede">A warm, safe place in Gaborone West for children from 9 months to 4 years. Small classes, qualified teachers, and plenty of room to play.</p>
+    <p class="lede">A warm, safe place in Mogoditshane for children from 9 months to 5 years. Small classes, qualified teachers, and plenty of room to play.</p>
     <div style="margin-top:10mm"><span class="pill">PROSPECTUS</span></div>
   </div>
   <div class="meta" style="position:relative">
-    Plot 1404, Gaborone West Phase 1, Gaborone, Botswana<br/>
-    +267 395 1404 &nbsp;·&nbsp; admissions@radianthearts.co.bw<br/>
+    Plot 1404, Mogoditshane, Botswana<br/>
+    +267 78 008 119 &nbsp;·&nbsp; admissions@radianthearts.co.bw<br/>
     www.radianthearts.co.bw
   </div>
 </section>
@@ -98,30 +102,45 @@
 <section class="page">
   <p class="eyebrow">What we offer</p>
   <h2 class="section">Our <span class="accent">Classes</span></h2>
-  <p style="max-width:150mm">We take children from 9 months to 4 years, in three small classes. Every class is capped at 12 children, with one teacher for every four to six children depending on age.</p>
+  <p style="max-width:150mm">We take children in four small classes. Every class is capped at 18 children, each with its own dedicated teacher.</p>
 
   <div class="cards" style="margin-top:7mm">
     <div class="card c-orange">
-      <div class="age">9 - 18 Months</div><h3>Baby Class</h3>
+      <h3>Baby Class</h3>
       <p>Warm, one-to-one care. We give full attention to every first step and first word, with gentle guidance and plenty to touch, hear and explore.</p>
     </div>
     <div class="card c-navy">
-      <div class="age">18 - 30 Months</div><h3>Toddlers</h3>
+      <h3>Kinder</h3>
       <p>Freedom within structure. Your toddler chooses, explores and speaks. We build language and confidence through planned activities and outdoor play.</p>
     </div>
     <div class="card c-sky">
-      <div class="age">3 - 4 Years</div><h3>Pre-Nursery</h3>
+      <h3>Middle</h3>
+      <p>Curiosity with structure. Early phonics, numbers and group learning, with plenty of room to play and make friends.</p>
+    </div>
+    <div class="card c-orange">
+      <h3>Reception</h3>
       <p>Getting ready for school. Early reading, numbers and life skills woven into play, so children start big school confident and curious.</p>
     </div>
   </div>
 
   <p class="eyebrow">A typical day</p>
   <h2 class="section">Our Daily <span class="accent">Rhythm</span></h2>
-  <div class="rhythm">
-    <div class="slot"><div class="time">07:00 - 08:30</div><h4>Arrival &amp; Breakfast</h4><p>A warm welcome and breakfast to start the day.</p></div>
-    <div class="slot"><div class="time">08:30 - 09:15</div><h4>Circle Time</h4><p>Singing, stories and talking about the day ahead.</p></div>
-    <div class="slot"><div class="time">09:15 - 11:30</div><h4>Discovery</h4><p>Small group and individual work with learning materials.</p></div>
-    <div class="slot"><div class="time">11:30 - 12:30</div><h4>Garden Play</h4><p>Outdoor time in our safe garden spaces.</p></div>
+  <div class="row" style="display:flex; gap:7mm; margin-top:1mm">
+    <div class="f" style="flex:1"><table class="daytable">
+      <tr><td class="rt">07:00 - 07:30</td><td class="ra">Arrival and welcome</td></tr>
+      <tr><td class="rt">07:30 - 08:00</td><td class="ra">Breakfast together</td></tr>
+      <tr><td class="rt">08:00 - 10:00</td><td class="ra">Circle time and morning learning</td></tr>
+      <tr><td class="rt">10:00 - 10:40</td><td class="ra">Break and garden play</td></tr>
+      <tr><td class="rt">10:40 - 12:00</td><td class="ra">Discovery: small group work</td></tr>
+      <tr><td class="rt">12:00 - 12:30</td><td class="ra">Creative time: art, music, movement</td></tr>
+    </table></div>
+    <div class="f" style="flex:1"><table class="daytable">
+      <tr><td class="rt">12:30 - 13:15</td><td class="ra">Lunch, fresh from our kitchen</td></tr>
+      <tr><td class="rt">13:15 - 14:30</td><td class="ra">Rest and quiet time</td></tr>
+      <tr><td class="rt">14:30 - 16:00</td><td class="ra">Afternoon adventures</td></tr>
+      <tr><td class="rt">16:00 - 16:30</td><td class="ra">Afternoon snack</td></tr>
+      <tr><td class="rt">16:30 - 17:00</td><td class="ra">Collection and goodbyes</td></tr>
+    </table></div>
   </div>
 
   <div class="box sand">
@@ -130,7 +149,7 @@
       <li>Fresh meals and snacks cooked on site each day, with dietary needs catered for</li>
       <li>Daily outdoor play in safe, shaded garden areas</li>
       <li>Photos and notes sent to parents each day</li>
-      <li>A maximum of 12 children per class</li>
+      <li>A maximum of 18 children per class</li>
     </ul>
   </div>
 
@@ -153,11 +172,13 @@
   <div class="box navy">
     <h3>Fees</h3>
     <table>
-      <tr><td>Registration fee (one-time)</td><td class="r">P500</td></tr>
-      <tr><td>Deposit (refunded when your child leaves)</td><td class="r">One month</td></tr>
-      <tr><td>Monthly tuition</td><td class="r">On request</td></tr>
+      <tr><td>Registration fee (one-time)</td><td class="r">P200</td></tr>
+      <tr><td>Term (three months)</td><td class="r">P4,500</td></tr>
+      <tr><td>Two months</td><td class="r">P3,200</td></tr>
+      <tr><td>One month</td><td class="r">P1,700</td></tr>
+      <tr><td>Daily rate</td><td class="r">P150</td></tr>
     </table>
-    <p style="margin-top:4mm; font-size:9.5pt">Tuition depends on the class and the days you choose. Ask us for the current fee sheet.</p>
+    <p style="margin-top:4mm; font-size:9.5pt">The same tuition applies to every class and schedule. Ask us for the current fee sheet.</p>
   </div>
 
   <div class="box">
@@ -182,15 +203,14 @@
     <div class="step"><div class="num">1</div><div><h3>Book a tour</h3><p class="muted">Call or message us and pick a weekday. Tours take about 30 minutes.</p></div></div>
     <div class="step"><div class="num">2</div><div><h3>Bring your documents</h3><p class="muted">If you bring everything on the day, most families finish registration in one visit.</p></div></div>
     <div class="step"><div class="num">3</div><div><h3>Meet the team</h3><p class="muted">Tell us about your child: routines, allergies and what settles them, so we can prepare properly.</p></div></div>
-    <div class="step"><div class="num">4</div><div><h3>Confirm the place</h3><p class="muted">Once the registration fee and deposit are settled, we hold the place and confirm in writing.</p></div></div>
+    <div class="step"><div class="num">4</div><div><h3>Confirm the place</h3><p class="muted">Once the registration fee is settled, we hold the place and confirm in writing.</p></div></div>
   </div>
 
   <div class="box sand">
     <h3>Good to know</h3>
     <ul>
       <li>Registering does not by itself reserve a place. It is confirmed once fees are settled and we confirm in writing.</li>
-      <li>Places are limited to 12 children per class, so early registration is encouraged.</li>
-      <li>We are preparing to open and have not yet confirmed a firm opening date. Register your interest and we will keep you updated.</li>
+      <li>Places are limited to 18 children per class, so early registration is encouraged.</li>
     </ul>
   </div>
 
@@ -198,8 +218,8 @@
     <img class="contact-logo" src="public/logo/rh-primary-mono-white.png" alt="Radiant Hearts Pre-School"/>
     <h3>Come and see us</h3>
     <p style="margin-top:2mm; line-height:1.8; font-size:10pt">
-      Plot 1404, Gaborone West Phase 1, Gaborone, Botswana<br/>
-      +267 395 1404<br/>
+      Plot 1404, Mogoditshane, Botswana<br/>
+      +267 78 008 119<br/>
       admissions@radianthearts.co.bw<br/>
       Monday to Friday, 07:00 - 17:30
     </p>

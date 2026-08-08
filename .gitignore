@@ -5,3 +5,8 @@ _assets-archive/
 *.log
 .claude-flow/
 .claude/
+
+# TapxMedia internal — invoicing, not client deliverables. Never publish.
+doc-invoice-source.html
+TapxMedia-Invoice-RadiantHearts.pdf
+tapx-logo-wordmark.png
