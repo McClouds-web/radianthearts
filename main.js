@@ -106,54 +106,206 @@ document.addEventListener('DOMContentLoaded', () => {
         if (initial) setActive(initial);
     }
 
-    // ---- Forms: no backend, so compose a real email the visitor can send ----
     const SCHOOL_EMAIL = 'admissions@radianthearts.co.bw';
 
-    const flash = (form, message) => {
+    const flash = (form, message, tone) => {
         let note = form.querySelector('.form-note');
         if (!note) {
             note = document.createElement('p');
             note.className = 'form-note text-body-sm font-body-sm mt-3';
+            note.setAttribute('role', 'status');
+            note.setAttribute('aria-live', 'polite');
             form.appendChild(note);
         }
         note.textContent = message;
-        note.style.color = '#B35A12';
+        // Amber for "we need something from you", navy for "this worked".
+        note.style.color = tone === 'ok' ? '#0F5132' : '#B35A12';
+        return note;
     };
 
-    // Contact page enquiry form
-    const contactForm = document.querySelector('form.relative.z-10.space-y-6');
+    // ---- Enquiry attribution -------------------------------------------------
+    // A parent lands on the home page with a campaign tag, browses, and only
+    // then opens the contact page. If we read the query string at submit time
+    // the campaign is long gone, so the first page of the visit is what gets
+    // remembered, for this tab only.
+    const ATTRIBUTION_KEY = 'rh_attribution';
+    const attribution = (() => {
+        try {
+            const stored = sessionStorage.getItem(ATTRIBUTION_KEY);
+            if (stored) return JSON.parse(stored);
+        } catch (_) { /* private mode, or storage disabled — carry on without it */ }
+
+        const params = new URLSearchParams(window.location.search);
+        const first = {
+            utm_source: params.get('utm_source'),
+            utm_medium: params.get('utm_medium'),
+            utm_campaign: params.get('utm_campaign'),
+            utm_content: params.get('utm_content'),
+            utm_term: params.get('utm_term'),
+            landing_page: window.location.href.slice(0, 500),
+            referrer: (document.referrer || '').slice(0, 500) || null,
+        };
+        try { sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(first)); } catch (_) { /* ignore */ }
+        return first;
+    })();
+
+    // ---- Contact page enquiry form ------------------------------------------
+    // Posts to the school's admissions system. Both values below are public by
+    // design: the endpoint is open to the internet and the site key only tells
+    // the server which school this website belongs to. The school is never
+    // named by the browser, and the key can be revoked server-side without
+    // touching this file.
+    const ENQUIRY_ENDPOINT = 'https://fcfnivocaotktkqnilbp.supabase.co/functions/v1/public-enquiry';
+    const ENQUIRY_SITE_KEY = 'pk_rh_8efe16b37943ce307b82d7da70a23ce8';
+
+    // "Other Inquiry" is a reason for writing, not a class the school runs.
+    const CLASS_NAMES = ['Baby Class', 'Kinder', 'Middle', 'Reception'];
+
+    const contactForm = document.getElementById('enquiry-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const val = (sel) => {
-                const el = contactForm.querySelector(sel);
-                return el ? el.value.trim() : '';
-            };
-            const name = val('input[type="text"]');
-            const email = val('input[type="email"]');
-            const phone = val('input[type="tel"]');
-            const select = contactForm.querySelector('select');
-            const topic = select ? select.options[select.selectedIndex].text : '';
-            const message = val('textarea');
+        const button = contactForm.querySelector('[data-submit]');
+        const buttonLabel = button ? button.textContent.trim() : 'Send Message';
+        let sending = false;
 
-            if (!name || !email || !message) {
-                flash(contactForm, 'Please add your name, email and a message.');
-                return;
-            }
-
+        const mailtoFallback = (name, email, phone, topic, message) => {
             const body = [
                 'Name: ' + name,
                 'Email: ' + email,
                 phone ? 'Phone: ' + phone : null,
                 topic ? 'Enquiry about: ' + topic : null,
                 '',
-                message
+                message,
             ].filter(Boolean).join('\n');
-
-            window.location.href = 'mailto:' + SCHOOL_EMAIL +
+            return 'mailto:' + SCHOOL_EMAIL +
                 '?subject=' + encodeURIComponent('Website enquiry from ' + name) +
                 '&body=' + encodeURIComponent(body);
-            flash(contactForm, 'Opening your email app to send this message...');
+        };
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // A second tap on a slow connection must not book a second visit.
+            if (sending) return;
+
+            const val = (id) => {
+                const el = document.getElementById(id);
+                return el ? el.value.trim() : '';
+            };
+            const name = val('enq-name');
+            const email = val('enq-email');
+            const phone = val('enq-phone');
+            const message = val('enq-message');
+            const program = val('enq-program');
+            const consent = document.getElementById('consent');
+
+            if (!name || !email || !message) {
+                flash(contactForm, 'Please add your name, email and a message.');
+                return;
+            }
+            if (consent && !consent.checked) {
+                flash(contactForm, 'Please tick the consent box so we know we may reply to you.');
+                consent.focus();
+                return;
+            }
+
+            sending = true;
+            if (button) {
+                button.disabled = true;
+                button.setAttribute('aria-busy', 'true');
+                button.textContent = 'Sending...';
+            }
+            flash(contactForm, 'Sending your enquiry...');
+
+            let response;
+            try {
+                response = await fetch(ENQUIRY_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        key: ENQUIRY_SITE_KEY,
+                        guardian_name: name,
+                        guardian_email: email,
+                        guardian_phone: phone || null,
+                        message: message,
+                        class_name: CLASS_NAMES.indexOf(program) === -1 ? null : program,
+                        source: 'website',
+                        company: (document.getElementById('enq-company') || {}).value || '',
+                        utm_source: attribution.utm_source,
+                        utm_medium: attribution.utm_medium,
+                        utm_campaign: attribution.utm_campaign,
+                        utm_content: attribution.utm_content,
+                        utm_term: attribution.utm_term,
+                        landing_page: attribution.landing_page,
+                        referrer: attribution.referrer,
+                    }),
+                });
+            } catch (_) {
+                response = null; // offline, DNS failure, blocked request
+            }
+
+            const restore = () => {
+                sending = false;
+                if (button) {
+                    button.disabled = false;
+                    button.removeAttribute('aria-busy');
+                    button.textContent = buttonLabel;
+                }
+            };
+
+            // Nothing below clears the form. If sending failed, everything the
+            // parent typed is still on screen and the retry costs one tap.
+            if (!response) {
+                restore();
+                const note = flash(contactForm, 'We could not reach the school just now. Please check your connection and try again, or ');
+                const link = document.createElement('a');
+                link.href = mailtoFallback(name, email, phone, program, message);
+                link.textContent = 'send this as an email instead';
+                link.className = 'underline';
+                note.appendChild(link);
+                note.appendChild(document.createTextNode('.'));
+                return;
+            }
+
+            if (response.status === 429) {
+                restore();
+                flash(contactForm, 'That is a few enquiries in a short time. Please wait a few minutes and try again, or call us on +267 78 008 119.');
+                return;
+            }
+
+            if (!response.ok) {
+                restore();
+                const note = flash(contactForm, 'Something went wrong at our end and your enquiry was not sent. Please try again, or ');
+                const link = document.createElement('a');
+                link.href = mailtoFallback(name, email, phone, program, message);
+                link.textContent = 'send this as an email instead';
+                link.className = 'underline';
+                note.appendChild(link);
+                note.appendChild(document.createTextNode('.'));
+                return;
+            }
+
+            let reference = null;
+            try {
+                const payload = await response.json();
+                reference = payload && payload.reference;
+            } catch (_) { /* a 200 without a body still means it was received */ }
+
+            // Deliberately not restoring the button: the enquiry is in, and
+            // re-enabling it invites a duplicate.
+            sending = false;
+            if (button) {
+                button.disabled = true;
+                button.removeAttribute('aria-busy');
+                button.textContent = 'Enquiry sent';
+            }
+            contactForm.reset();
+            flash(
+                contactForm,
+                reference
+                    ? 'Thank you. Your enquiry is with our admissions team — your reference is ' + reference + '. We will be in touch shortly.'
+                    : 'Thank you. Your enquiry is with our admissions team and we will be in touch shortly.',
+                'ok',
+            );
         });
     }
 
